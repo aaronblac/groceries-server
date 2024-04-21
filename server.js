@@ -3,7 +3,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 const cors = require('cors');
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.json()); 
 
 app.use(cors({
     origin: 'http://localhost:8100'
@@ -65,8 +65,8 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (e
                 }
             };
             const updatedItem = await itemCollection.updateOne(
-                { _id: ObjectId(id) }, // Match document by _id
-                req.body // Pass req.body containing valid update operators
+                { _id: ObjectId(id) }, 
+                req.body 
             );
             console.log(updatedItem.matchedCount);
             if (updatedItem.matchedCount === 0) return res.status(404).send('Item not found');
