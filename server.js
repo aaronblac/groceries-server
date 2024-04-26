@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json()); 
 
 app.use(cors({
-    origin: 'http://localhost:8100'
+    origin: 'https://groceries-app-bayv.onrender.com'
 }));
 
 const port = process.env.PORT || 8080;
